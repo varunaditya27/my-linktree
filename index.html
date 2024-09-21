@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="OsZNXLpHFXPODOXINTTWbpLD8QojjZ5JQv8jeEnKwTo" />
+    <title>Varun Aditya - LinkTree</title>
+    <!-- Import Poppins and Special Elite Fonts from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Special+Elite&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Typewriter Effect with Special Elite Font */
+        .typewriter h1 {
+            font-family: "Special Elite", cursive; /* Typewriter-like font */
+            overflow: hidden;
+            border-right: 0.15em solid #406E8E; /* Cursor */
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            color: #CBF7ED; /* Light theme matching your profile color */
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #406E8E; }
+        }
+
+        /* Style adjustments for smooth load */
+        body {
+            opacity: 0; /* Fade in effect on page load */
+            transition: opacity 0.5s ease-in;
+        }
+
+        /* Button Styles */
+        .custom-btn {
+            width: 100%;
+            height: 45px;
+            margin: 12px 0;
+            border-radius: 5px;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #23395B, #406E8E);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: linear-gradient(135deg, #8EA8C3, #CBF7ED);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tooltip Styles */
+        a {
+            position: relative;
+        }
+
+        a:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 110%; /* Positioned above the button */
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-color: #406E8E;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 12px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        a:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* Triangle directly above the tooltip */
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #406E8E transparent; /* Triangle pointing to the button */
+        }
+
+        /* Icon Animation */
+        .custom-btn i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .custom-btn:hover i {
+            transform: rotate(360deg); /* Rotate icon on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Typewriter Intro -->
+        <div class="typewriter">
+            <h1>Hello, I'm Varun!</h1>
+        </div>
+
+        <div class="profile">
+            <div class="photo">
+                <div class="img"></div>
+            </div>
+            <span class="profile_name">Varun Aditya</span>
+        </div>
+
+        <!-- Links -->
+        <div class="links">
+            <a href="https://github.com/varunaditya27/" target="_blank" title="Check out my GitHub!">
+                <button class="custom-btn btn-8">
+                    <span><i class="fab fa-github"></i> GitHub</span>
+                </button>
+            </a>
+            <a href="mailto:varun.paparajugari@gmail.com" target="_blank" title="Send me an email!">
+                <button class="custom-btn btn-8">
+                    <span><i class="fas fa-paper-plane"></i> Email</span>
+                </button>
+            </a>
+            <a href="https://www.linkedin.com/in/varun-aditya-47579516b/" target="_blank" title="Connect with me on LinkedIn!">
+                <button class="custom-btn btn-8">
+                    <span><i class="fab fa-linkedin"></i> LinkedIn</span>
+                </button>
+            </a>
+            <a href="https://www.instagram.com/varunaditya27/" target="_blank" title="Follow me on Instagram!">
+                <button class="custom-btn btn-8">
+                    <span><i class="fab fa-instagram"></i> Instagram</span>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Copy Email to Clipboard
+        const emailButton = document.querySelector('a[href^="mailto:"]');
+        emailButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default mailto behavior
+            const email = 'varun.paparajugari@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email copied to clipboard!');
+            });
+        });
+
+        // Page Load Animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 1; // Smooth fade-in on page load
+        });
+
+        // Smooth Scroll for Anchor Links (if internal links are added in the future)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

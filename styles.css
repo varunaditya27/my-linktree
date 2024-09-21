@@ -1,0 +1,204 @@
+/* Global Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background: url('background.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    cursor: url('https://example.com/custom-cursor.png'), auto; /* Custom cursor */
+    opacity: 0; /* Page load effect */
+    transition: opacity 1s ease-in-out;
+}
+
+.container {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    background: rgba(34, 34, 34, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile {
+    color: #CBF7ED;
+    margin-bottom: 20px;
+}
+
+.profile_name {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.photo {
+    margin: 0 auto;
+    border: 6px solid transparent; /* Initial border */
+    border-radius: 50%; /* Keep it circular */
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    position: relative; /* Position relative for the overlay */
+}
+
+.photo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #406E8E, #CBF7ED); /* Gradient border */
+    z-index: -1; /* Behind the image */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.photo:hover::before {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url("profile.jpg") center/cover; /* Your profile image */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.photo:hover .img {
+    transform: scale(1.05); /* Scale up image on hover */
+}
+
+.profile_name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 20px;
+    color: #8EA8C3;
+}
+
+/* Button Styles */
+.custom-btn {
+    width: 100%;
+    height: 45px;
+    margin: 12px 0;
+    border-radius: 25px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #23395B, #406E8E);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, #8EA8C3, #CBF7ED);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-btn:hover i {
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    60% { transform: translateY(-2px); }
+}
+
+.custom-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.custom-btn i {
+    margin-right: 8px;
+    transition: transform 0.3s ease, color 0.3s ease; /* Added color transition */
+}
+
+.custom-btn:hover i {
+    transform: rotate(360deg) scale(1.2); /* Scale up and rotate on hover */
+    color: #CBF7ED; /* Change icon color on hover */
+}
+
+/* Tooltip Styles */
+a {
+    position: relative;
+}
+
+a:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 110%; /* Positioned above the button */
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #406E8E;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+a:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Triangle directly above the tooltip */
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #406E8E transparent; /* Triangle pointing to the button */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #CBF7ED;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+/* Typewriter Effect */
+.typewriter h1 {
+    overflow: hidden;
+    border-right: 0.15em solid #406E8E; /* Cursor */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #406E8E; }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
